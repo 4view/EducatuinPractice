@@ -1,0 +1,117 @@
+public class Counter
+{
+    public event Action<string>? OnNumIncreased;
+    public event Action<string>? OnNumDecreased;
+    public event Action<string>? OnCounterReset;
+    public event Action<string>? OnGoalAchieved;
+    public event Action<string>? OnGoalLost;
+    public const string Quit = "q";
+    public const string Reset = "00";
+    int goal = 0;
+    string input = string.Empty;
+    bool isGoalReached = false;
+
+    public void Start()
+    {
+        bool isEnd = false;
+        int resultSum = 0;
+        int previusSum = 0;
+
+        Console.WriteLine("Enter [q] to end up a program; [00] to reset a counter");
+
+        goal = SetGoal();
+
+        Console.WriteLine("Enter a number: ");
+
+        while (isEnd is false)
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            input = Console.ReadLine() ?? string.Empty;
+
+            if (input == Quit)
+            {
+                isEnd = true;
+                break;
+            }
+
+            if (int.TryParse(input, out int number) is false)
+            {
+                Console.WriteLine($"[Invalid input type] - {input}. Please enter a number!");
+                continue;
+            }
+
+            ResetCounterToZero(resultSum);
+
+            resultSum += number;
+            Compare(previusSum, resultSum);
+            previusSum += number;
+        }
+
+        Console.WriteLine($"Common SUM: {resultSum}");
+    }
+
+    private int SetGoal()
+    {
+        bool isGoalSet = false;
+        while (isGoalSet is not true)
+        {
+            Console.Write("Enter the goal to achieve: ");
+            string goalToAchieve = Console.ReadLine() ?? string.Empty;
+
+            if (int.TryParse(goalToAchieve, out int goal) is false)
+            {
+                Console.WriteLine(
+                    $"[Invalid goal input] - {goalToAchieve}. Please enter a number!"
+                );
+                continue;
+            }
+            return goal;
+        }
+        return 0;
+    }
+
+    private void ResetCounterToZero(int resultSum)
+    {
+        if (input == Reset)
+        {
+            OnCounterReset?.Invoke($"SUM was reset to '0'. Common SUM was [{resultSum}]");
+            resultSum = 0;
+            isGoalReached = false;
+        }
+    }
+
+    private void IsGaolAchieved(int resultSum)
+    {
+        if (resultSum >= goal && isGoalReached == false)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            OnGoalAchieved?.Invoke($"SUM exeed a goal [{goal}]. General SUM is [{resultSum}]");
+            isGoalReached = true;
+        }
+    }
+
+    private void IsGoalLost(int resultSum)
+    {
+        if (resultSum < goal && isGoalReached == true)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            OnGoalLost?.Invoke($"SUM lost a goal [{goal}]. General SUM is [{resultSum}]");
+            isGoalReached = false;
+        }
+    }
+
+    private void Compare(int previousSum, int resultSum)
+    {
+        if (resultSum > previousSum)
+        {
+            OnNumIncreased?.Invoke($"Sum incresed by: {input}. [Genereal: {resultSum}]");
+
+            IsGaolAchieved(resultSum);
+        }
+        else if (resultSum <= previousSum)
+        {
+            OnNumDecreased?.Invoke($"Sum decreased by: {input}. [General: {resultSum}]");
+            IsGoalLost(resultSum);
+        }
+    }
+}

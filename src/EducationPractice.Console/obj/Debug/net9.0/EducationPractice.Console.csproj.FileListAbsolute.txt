@@ -1,0 +1,14 @@
+C:\Users\user\Documents\Source\EducationPractice\src\EducationPractice.Console\bin\Debug\net9.0\EducationPractice.Console.exe
+C:\Users\user\Documents\Source\EducationPractice\src\EducationPractice.Console\bin\Debug\net9.0\EducationPractice.Console.deps.json
+C:\Users\user\Documents\Source\EducationPractice\src\EducationPractice.Console\bin\Debug\net9.0\EducationPractice.Console.runtimeconfig.json
+C:\Users\user\Documents\Source\EducationPractice\src\EducationPractice.Console\bin\Debug\net9.0\EducationPractice.Console.dll
+C:\Users\user\Documents\Source\EducationPractice\src\EducationPractice.Console\bin\Debug\net9.0\EducationPractice.Console.pdb
+C:\Users\user\Documents\Source\EducationPractice\src\EducationPractice.Console\obj\Debug\net9.0\EducationPractice.Console.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Documents\Source\EducationPractice\src\EducationPractice.Console\obj\Debug\net9.0\EducationPractice.Console.AssemblyInfoInputs.cache
+C:\Users\user\Documents\Source\EducationPractice\src\EducationPractice.Console\obj\Debug\net9.0\EducationPractice.Console.AssemblyInfo.cs
+C:\Users\user\Documents\Source\EducationPractice\src\EducationPractice.Console\obj\Debug\net9.0\EducationPractice.Console.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\Source\EducationPractice\src\EducationPractice.Console\obj\Debug\net9.0\EducationPractice.Console.dll
+C:\Users\user\Documents\Source\EducationPractice\src\EducationPractice.Console\obj\Debug\net9.0\refint\EducationPractice.Console.dll
+C:\Users\user\Documents\Source\EducationPractice\src\EducationPractice.Console\obj\Debug\net9.0\EducationPractice.Console.pdb
+C:\Users\user\Documents\Source\EducationPractice\src\EducationPractice.Console\obj\Debug\net9.0\EducationPractice.Console.genruntimeconfig.cache
+C:\Users\user\Documents\Source\EducationPractice\src\EducationPractice.Console\obj\Debug\net9.0\ref\EducationPractice.Console.dll
