@@ -36,7 +36,7 @@ public class Counter
 
             if (int.TryParse(input, out int number) is false)
             {
-                Console.WriteLine($"[Invalid input type] - {input}. Please enter a number!");
+                Console.WriteLine($"[INVALID TYPE] - {input}. Please enter a number!");
                 continue;
             }
 
@@ -47,7 +47,7 @@ public class Counter
             previusSum += number;
         }
 
-        Console.WriteLine($"Common SUM: {resultSum}");
+        Console.WriteLine($"GENERAL SUM: {resultSum}");
     }
 
     private int SetGoal()
@@ -60,9 +60,7 @@ public class Counter
 
             if (int.TryParse(goalToAchieve, out int goal) is false)
             {
-                Console.WriteLine(
-                    $"[Invalid goal input] - {goalToAchieve}. Please enter a number!"
-                );
+                Console.WriteLine($"[INVALID INPUT] - {goalToAchieve}. Please enter a number!");
                 continue;
             }
             return goal;
@@ -74,7 +72,7 @@ public class Counter
     {
         if (input == Reset)
         {
-            OnCounterReset?.Invoke($"SUM was reset to '0'. Common SUM was [{resultSum}]");
+            OnCounterReset?.Invoke($"SUM reset to '0'. Common SUM was [{resultSum}]");
             resultSum = 0;
             isGoalReached = false;
         }
@@ -104,13 +102,13 @@ public class Counter
     {
         if (resultSum > previousSum)
         {
-            OnNumIncreased?.Invoke($"Sum incresed by: {input}. [Genereal: {resultSum}]");
+            OnNumIncreased?.Invoke($"Sum incresed by: {input}. [GENERAL: {resultSum}]");
 
             IsGaolAchieved(resultSum);
         }
         else if (resultSum <= previousSum)
         {
-            OnNumDecreased?.Invoke($"Sum decreased by: {input}. [General: {resultSum}]");
+            OnNumDecreased?.Invoke($"Sum decreased by: {input}. [GENERAL: {resultSum}]");
             IsGoalLost(resultSum);
         }
     }
